@@ -16,10 +16,11 @@ const Topics = () => {
       <ul>
         <h2>Today's Topics</h2>
         {topics.map((topic) => {
-          console.log(topic);
           return (
             <div key={topic.slug}>
-              <h3>{topic.slug}</h3>
+              {/* <Link to={"/articles/${topic}"}>
+                <h3>{topic.slug}</h3>
+              </Link> */}
               <p>{topic.description}</p>
             </div>
           );
