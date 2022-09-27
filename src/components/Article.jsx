@@ -20,6 +20,7 @@ const Article = () => {
       <h2>topic:{article.topic}</h2>
       <h3> {article.title}</h3>
       <p>{article.body}</p>
+
       <p>authot: {article.author}</p>
     </div>
   );

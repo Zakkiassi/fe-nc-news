@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Topics = () => {
   const [topics, setTopics] = useState([]);
@@ -16,11 +17,12 @@ const Topics = () => {
       <ul>
         <h2>Today's Topics</h2>
         {topics.map((topic) => {
+          console.log(topic);
           return (
             <div key={topic.slug}>
-              {/* <Link to={"/articles/${topic}"}>
+              <Link to={`/topics/${topic.slug}`}>
                 <h3>{topic.slug}</h3>
-              </Link> */}
+              </Link>
               <p>{topic.description}</p>
             </div>
           );

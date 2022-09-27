@@ -1,16 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const { topic } = useParams();
+  console.log(topic);
   useEffect(() => {
     axios
-      .get(`https://ncnewsyk.herokuapp.com/api/articles`)
+      .get(`https://ncnewsyk.herokuapp.com/api/articles`, {
+        params: { topic: topic },
+      })
       .then(({ data: { articles } }) => {
         setArticles(articles);
       });
-  }, []);
-  
+  }, [topic]);
 
   return (
     <main>
@@ -19,9 +23,10 @@ const Articles = () => {
         {articles.map((article) => {
           //console.log(article);
           return (
-            <div key={article.topic}>
+            <div key={article.article_id}>
               <h3>{article.title}</h3>
               <p>{article.body}</p>
+              <p>{article.topic}</p>
             </div>
           );
         })}
