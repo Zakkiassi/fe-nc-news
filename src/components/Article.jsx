@@ -14,7 +14,7 @@ const Article = () => {
       [article_id]
     );
   });
-  console.log(article);
+
   return (
     <div>
       <h2>topic:{article.topic}</h2>

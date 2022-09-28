@@ -16,6 +16,7 @@ const Topics = () => {
     <main>
       <ul>
         <h2>Today's Topics</h2>
+
         {topics.map((topic) => {
           console.log(topic);
           return (
@@ -27,6 +28,9 @@ const Topics = () => {
             </div>
           );
         })}
+        <Link to={"/articles"}>
+          <p>View all articles</p>
+        </Link>
       </ul>
     </main>
   );
