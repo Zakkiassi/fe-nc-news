@@ -13,6 +13,9 @@ const Articles = () => {
       })
       .then(({ data: { articles } }) => {
         setArticles(articles);
+      })
+      .catch((err) => {
+        
       });
   }, [topic]);
 
@@ -26,8 +29,11 @@ const Articles = () => {
               <Link to={`/articles/${article.article_id}`}>
                 <h3>{article.title}</h3>
               </Link>
-              <p>{article.body}</p>
-              <p>{article.topic}</p>
+              <p> author: {article.author}</p>
+              <p>topic: {article.topic}</p>
+              <p>
+                votes: {article.votes} comments: {article.comment_count}
+              </p>
             </div>
           );
         })}
