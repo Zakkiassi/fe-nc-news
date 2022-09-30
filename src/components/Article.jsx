@@ -29,7 +29,8 @@ const Article = () => {
       <p>{article.body}</p>
       <p>author: {article.author}</p>
       <p>date: {article.created_at}</p>
-      <Vote article={article}/>
+
+      <Vote article={article} />
     </div>
   );
 };
