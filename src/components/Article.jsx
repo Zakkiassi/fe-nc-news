@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Vote from "./votes";
 
 const Article = () => {
   const [article, setArticle] = useState({});
@@ -11,7 +12,6 @@ const Article = () => {
     axios
       .get(`https://ncnewsyk.herokuapp.com/api/articles/${article_id}`)
       .then(({ data: { article } }) => {
-        console.log(article);
         setArticle(article);
       })
       .catch((err) => {
@@ -29,6 +29,7 @@ const Article = () => {
       <p>{article.body}</p>
       <p>author: {article.author}</p>
       <p>date: {article.created_at}</p>
+      <Vote article={article}/>
     </div>
   );
 };
