@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./CSS/App.css";
 import Topics from "./components/Topics";
 import Header from "./components/header";
 import Articles from "./components/Articles";
@@ -11,18 +11,25 @@ function App() {
   const navigate = useNavigate();
   return (
     <div className="App">
-      <Header />
+      <div className="navbar">
+        <Header />
 
-      <Link to={"/"}>home page</Link>
-      <Link> </Link>
-      <Routes>
-        <Route path="/" element={<Topics />} />
-        <Route path="/articles" element={<Articles />} />
+        <Link className="hover:bg-sky-700 text-xl" to={"/"}>home page</Link>
+      </div>
+      <main>
+        <div className="pageLayout">
+          <Routes>
+            <Route path="/" element={<Topics />} />
+            <Route path="/articles" element={<Articles />} />
 
-        <Route path="/articles/:article_id" element={<Article />} />
-        <Route path="/topics/:topic" element={<Articles />} />
-      </Routes>
-      <button onClick={() => navigate(-1)}>Go back</button>
+            <Route path="/articles/:article_id" element={<Article />} />
+            <Route path="/topics/:topic" element={<Articles />} />
+          </Routes>
+        </div>
+      </main>
+      <div className="backBtn">
+        <button onClick={() => navigate(-1)}>Go back</button>
+      </div>
     </div>
   );
 }

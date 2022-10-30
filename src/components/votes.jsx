@@ -29,7 +29,7 @@ const Vote = ({ article }) => {
   return (
     <div>
       <button
-        className="voteBtn"
+        className="voteBtn  border-solid border-2 bg-slate-400 rounded-lg hover:bg-sky-700 "
         onClick={() => {
           handleClick();
         }}

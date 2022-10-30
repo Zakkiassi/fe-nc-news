@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Vote from "./votes";
+import "../CSS/article.css";
 
 const Article = () => {
   const [article, setArticle] = useState({});
@@ -23,15 +24,24 @@ const Article = () => {
   }
 
   return (
-    <div>
-      <h2>topic:{article.topic}</h2>
-      <h3> {article.title}</h3>
-      <p>{article.body}</p>
-      <p>author: {article.author}</p>
-      <p>date: {article.created_at}</p>
+    <main className="topic">
+      <h2 className=" text-2xl py-2 pb-10 rounded-lg">
+        topic:{article.topic}
+      </h2>
+      <div className="article">
+        <h3 className="p-5 text-xl bg-yellow-500 rounded-lg ">
+          {" "}
+          {article.title}
+        </h3>
+        <div className="">
+          <p className="p-10 border-solid border-2 ">{article.body}</p>
+          <p>author: {article.author}</p>
+          <p>date: {article.created_at}</p>
 
-      <Vote article={article} />
-    </div>
+          <Vote article={article} />
+        </div>
+      </div>
+    </main>
   );
 };
 
